@@ -1,0 +1,30 @@
+.keys{
+    font-size: 2rem;
+    color: black;
+    border: none;
+    border:1px solid rgb(208, 204, 204);
+    width: 4.5rem;
+    margin: 0.6rem;
+}
+.zero_button{
+    font-size: 2rem;
+    color: black;
+    border: none;
+    border: 1px solid rgb(208, 204, 204);
+    margin: 0.6rem;
+    width: 10.2rem;
+}
+.operation{
+    background-color: rgb(244, 163, 11);
+    color: white;
+}
+.custom_table{
+    color: black;
+    font-size: 2rem;
+    margin: 0;
+}
+.key_constainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
