@@ -8,7 +8,8 @@ function App() {
   let [calVal, setDisplay] = useState("0");
   const onButtonClick = (val) => {
     const temp = ["-", "/", "*", "+", "%", ".", "X"];
-
+    const digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "."];
+    const operators = ["/", "X", "+/-", "-", "+", "."];
     if (val === "C") {
       setDisplay("0");
     } else if (temp.includes(calVal[calVal.length - 1]) && temp.includes(val)) {
@@ -31,9 +32,15 @@ function App() {
         }, 2000);
       }
     } else if (val === "X") {
+      if (!digits.includes(calVal[0])) {
+        return;
+      }
       const newValue = calVal + "*";
       setDisplay(newValue);
     } else if (val === "+/-") {
+      if (!digits.includes(calVal[0])) {
+        return;
+      }
       if (calVal[0] === "-" || calVal < 0) {
         return;
       }
@@ -45,7 +52,17 @@ function App() {
     } else if (val === "0" && parseInt(calVal) == 0) {
       setDisplay("0");
     } else {
+      if (operators.includes(val) && !digits.includes(calVal[0])) {
+        return;
+      }
+      if (val === "." && calVal.includes(".")) {
+        return;
+      }
       let newValue = calVal + val;
+      if (calVal.length == 1 && calVal[0] == 0) {
+        console.log(calVal.length);
+        newValue = val;
+      }
       if (parseInt(calVal) == 0) {
         newValue = val;
       }
